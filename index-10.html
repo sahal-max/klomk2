@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramadhan Cultural Exchange – Indonesia & Cina</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:      #f8f5f0;
+  --surface: #ffffff;
+  --card:    #fffdf9;
+  --card2:   #fdf9f2;
+  --gold:    #b8892a;
+  --gold2:   #c9972e;
+  --gold3:   #e8c05a;
+  --gold4:   #8a6520;
+  --gold-light: #fdf0d0;
+  --teal:    #2a7a7a;
+  --red-id:  #c0392b;
+  --border:  rgba(184,137,42,0.18);
+  --border2: rgba(184,137,42,0.35);
+  --text:    #1a1410;
+  --textsub: #4a3f30;
+  --muted:   #8a7a60;
+  --mutedlt: #a89070;
+  --shadow:  rgba(90,70,20,0.08);
+  --shadow2: rgba(90,70,20,0.15);
+  --red:     #b03a2e;
+  --blue:    #2e6b9e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;min-height:100vh}
+
+/* ─── BG PATTERN ─── */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(184,137,42,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(184,137,42,0.05) 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(255,248,235,0.8) 0%, transparent 70%);
+}
+
+/* ─── HEADER ─── */
+header{
+  position:relative;z-index:2;
+  padding:4rem 2rem 3.5rem;
+  text-align:center;
+  background:linear-gradient(180deg,#fffdf5 0%,#fff9ec 60%,#f8f5f0 100%);
+  border-bottom:1px solid var(--border2);
+  overflow:hidden;
+}
+#star-canvas{
+  position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;
+}
+.header-deco{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(184,137,42,0.09) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 25% at 15% 50%, rgba(184,137,42,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 25% at 85% 50%, rgba(184,137,42,0.06) 0%, transparent 60%);
+}
+/* Decorative Arabic geometric pattern lines */
+.header-pattern{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold3),var(--gold),var(--gold3),transparent)}
+.moon-hero-wrap{
+  position:absolute;top:1.5rem;right:6%;
+  animation:moonFloat 6s ease-in-out infinite;
+}
+@keyframes moonFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+.badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--gold-light);
+  border:1px solid var(--border2);
+  color:var(--gold4);font-size:.68rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.4rem 1.2rem;border-radius:100px;margin-bottom:1.6rem;
+}
+.badge svg{flex-shrink:0}
+
+header h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.9rem,5vw,3.6rem);font-weight:700;
+  letter-spacing:.01em;line-height:1.2;
+  color:var(--gold4);margin-bottom:.45rem;
+  position:relative;
+}
+.sub-title{font-size:clamp(.95rem,2.2vw,1.15rem);font-weight:500;color:var(--textsub);letter-spacing:.03em;margin-bottom:.4rem}
+.tagline{font-size:.82rem;color:var(--mutedlt);letter-spacing:.05em;margin-bottom:2rem}
+
+.hflags{display:flex;align-items:center;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.fchip{display:flex;align-items:center;gap:.5rem;padding:.4rem 1.1rem;border-radius:100px;font-size:.83rem;font-weight:600}
+.fchip.ind{background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.25);color:var(--red-id)}
+.fchip.chn{background:var(--gold-light);border:1px solid var(--border2);color:var(--gold4)}
+
+/* ─── WRAP ─── */
+.wrap{max-width:1060px;margin:0 auto;padding:2.5rem 1.5rem 5rem;position:relative;z-index:2}
+
+/* ─── TABS ─── */
+.tab-rows{display:flex;flex-direction:column;gap:.45rem;margin-bottom:2rem}
+.tab-row{display:flex;gap:.4rem;background:var(--surface);border:1px solid var(--border);padding:.3rem;border-radius:12px;box-shadow:0 2px 8px var(--shadow)}
+.tab-row.center{justify-content:center}
+.tab-row.center .tbtn{max-width:240px}
+.tbtn{
+  flex:1;padding:.7rem .9rem;border:none;background:transparent;
+  color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.86rem;
+  font-weight:600;letter-spacing:.01em;cursor:pointer;
+  border-radius:9px;transition:all .3s ease;white-space:nowrap;
+}
+.tbtn:hover{color:var(--gold2);background:var(--gold-light)}
+.tbtn.active{
+  background:linear-gradient(135deg,var(--gold-light),#fdf7e8);
+  color:var(--gold4);
+  box-shadow:0 1px 6px var(--shadow2),inset 0 0 0 1px var(--border2);
+}
+
+/* ─── PANEL ─── */
+.panel{display:none;animation:fadeUp .5s ease both}
+.panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── HERO CARD ─── */
+.phero{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;padding:2rem 2.2rem;margin-bottom:2rem;
+  box-shadow:0 4px 20px var(--shadow);
+  position:relative;overflow:hidden;
+}
+.phero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(184,137,42,0.07),transparent 70%);pointer-events:none}
+.hero-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem}
+.hero-icon{width:52px;height:52px;background:var(--gold-light);border:1px solid var(--border2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-h2{font-family:'Playfair Display',serif;font-size:clamp(1.05rem,2.5vw,1.45rem);font-weight:700;color:var(--gold4);letter-spacing:.01em;line-height:1.3;margin-bottom:.25rem}
+.hero-tg{font-size:.82rem;color:var(--mutedlt);font-style:italic}
+.pdesc{font-size:.93rem;color:var(--textsub);line-height:1.9;padding-left:1rem;border-left:2px solid var(--border2)}
+.pdesc strong{color:var(--gold2);font-weight:700}
+.pdesc em{color:var(--gold4);font-style:italic}
+
+/* ─── SECTION LABEL ─── */
+.slabel{
+  font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--muted);margin-bottom:.85rem;margin-top:2rem;
+  display:flex;align-items:center;gap:.6rem;
+}
+.slabel::after{content:'';flex:1;height:1px;background:var(--border)}
+.slabel:first-child,.slabel.first{margin-top:0}
+
+/* ─── TRADITION CARDS ─── */
+.tgrid{display:grid;gap:.75rem;margin-bottom:2rem}
+.tcard{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:1.15rem 1.4rem;
+  display:grid;grid-template-columns:46px 1fr;gap:.9rem;align-items:start;
+  box-shadow:0 2px 10px var(--shadow);
+  transition:border-color .3s,transform .3s,box-shadow .3s;cursor:default;
+}
+.tcard:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 6px 24px var(--shadow2)}
+.ticon{width:46px;height:46px;background:var(--gold-light);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ttitle{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:600;color:var(--gold4);margin-bottom:.25rem;line-height:1.3}
+.tdesc{font-size:.85rem;color:var(--textsub);line-height:1.75}
+
+/* ─── PHASE CARDS ─── */
+.phase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-bottom:2rem}
+@media(max-width:600px){.phase-grid{grid-template-columns:1fr}}
+.pcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px var(--shadow)}
+.pcard-head{padding:.65rem 1.1rem;font-family:'Playfair Display',serif;font-size:.8rem;font-weight:700;letter-spacing:.04em;display:flex;align-items:center;gap:.45rem}
+.pcard-head svg{flex-shrink:0;opacity:.8}
+.pcard-head.menjelang{background:linear-gradient(90deg,rgba(100,80,160,0.1),transparent);color:#5a4a9a;border-bottom:1px solid rgba(100,80,160,0.15)}
+.pcard-head.saat{background:linear-gradient(90deg,rgba(184,137,42,0.12),transparent);color:var(--gold4);border-bottom:1px solid var(--border)}
+.pcard-head.akhir{background:linear-gradient(90deg,rgba(42,122,122,0.1),transparent);color:var(--teal);border-bottom:1px solid rgba(42,122,122,0.15)}
+.pcard-head.idul{background:linear-gradient(90deg,rgba(42,140,80,0.1),transparent);color:#2a7a50;border-bottom:1px solid rgba(42,140,80,0.15)}
+.pcard-body{padding:.9rem 1.1rem}
+.pcard-body ul{list-style:none}
+.pcard-body ul li{font-size:.84rem;color:var(--textsub);padding:.28rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem;align-items:flex-start;line-height:1.65}
+.pcard-body ul li:last-child{border-bottom:none}
+.pcard-body ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold3);margin-top:.55rem;flex-shrink:0}
+
+/* ─── ASTRO CARD ─── */
+.astro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2rem}
+@media(max-width:580px){.astro-grid{grid-template-columns:1fr}}
+.astro-grid.single{grid-template-columns:1fr}
+.acard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.4rem;box-shadow:0 2px 10px var(--shadow)}
+.acard-icon{margin-bottom:.55rem}
+.acard h3{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700;color:var(--gold4);margin-bottom:.9rem}
+.arow{display:flex;justify-content:space-between;align-items:flex-start;padding:.38rem 0;border-bottom:1px solid var(--border);gap:1rem}
+.arow:last-child{border-bottom:none}
+.akey{font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mutedlt);flex-shrink:0;min-width:100px}
+.aval{font-size:.86rem;color:var(--textsub);text-align:right;line-height:1.5}
+
+/* ─── DIFF BAR ─── */
+.diff-wrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6rem;margin-bottom:2rem;box-shadow:0 2px 10px var(--shadow)}
+.diff-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold4);margin-bottom:1.2rem;display:flex;align-items:center;gap:.55rem}
+.diff-bars{display:flex;flex-direction:column;gap:1rem}
+.dbar-row{display:flex;flex-direction:column;gap:.3rem}
+.dbar-meta{display:flex;justify-content:space-between;font-size:.81rem}
+.dbar-label{color:var(--textsub);font-weight:600;display:flex;align-items:center;gap:.4rem}
+.dbar-val{color:var(--gold4);font-family:'Playfair Display',serif;font-weight:600}
+.dbar-bg{height:9px;background:rgba(0,0,0,0.06);border-radius:100px;overflow:hidden}
+.dbar-fill{height:100%;border-radius:100px}
+.dbar-fill.ind{background:linear-gradient(90deg,#c0392b,#e05c5c);width:65%}
+.dbar-fill.chn-hot{background:linear-gradient(90deg,#b8892a,#e8c05a);width:93%}
+.dbar-fill.chn-cold{background:linear-gradient(90deg,#2e6b9e,#5aaad0);width:62%}
+.diff-note{margin-top:1rem;font-size:.86rem;color:var(--textsub);line-height:1.85;padding-left:1rem;border-left:2px solid var(--border2)}
+.diff-note strong{color:var(--gold2)}
+
+/* ─── SEASON GRID ─── */
+.season-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-bottom:2rem}
+@media(max-width:580px){.season-grid{grid-template-columns:1fr}}
+.scard-s{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.3rem;box-shadow:0 2px 10px var(--shadow)}
+.scard-s h3{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--gold4);margin-bottom:.25rem;display:flex;align-items:center;gap:.45rem}
+.scard-s .stag{font-size:.74rem;color:var(--mutedlt);font-style:italic;margin-bottom:.8rem}
+.si{display:flex;gap:.5rem;align-items:flex-start;font-size:.84rem;color:var(--textsub);padding:.25rem 0;line-height:1.62}
+.si::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold3);margin-top:.52rem;flex-shrink:0}
+
+/* ─── MENU CARDS ─── */
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2rem}
+@media(max-width:580px){.menu-grid{grid-template-columns:1fr}}
+.mcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px var(--shadow)}
+.mcard-head{padding:.75rem 1.2rem;font-family:'Playfair Display',serif;font-size:.8rem;font-weight:700;letter-spacing:.04em;display:flex;align-items:center;gap:.45rem;border-bottom:1px solid var(--border)}
+.mcard-head svg{flex-shrink:0;opacity:.85}
+.mcard-head.buka{background:linear-gradient(90deg,rgba(184,137,42,0.1),transparent);color:var(--gold4)}
+.mcard-head.sahur{background:linear-gradient(90deg,rgba(42,80,140,0.08),transparent);color:#2a509a}
+.mcard-body{padding:1rem 1.2rem}
+.mcol{margin-bottom:.85rem}
+.mcol:last-child{margin-bottom:0}
+.mcol-flag{font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem;display:flex;align-items:center;gap:.35rem}
+.mcol-flag.ind{color:var(--red-id)}
+.mcol-flag.chn{color:var(--gold4)}
+.menu-items{display:flex;flex-wrap:wrap;gap:.3rem}
+.mtag{background:var(--gold-light);border:1px solid var(--border);color:var(--textsub);font-size:.77rem;padding:.2rem .65rem;border-radius:100px}
+
+/* ─── STATS ─── */
+.stats-hd{margin-bottom:2rem}
+.stats-hd h2{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:700;color:var(--gold4);letter-spacing:.01em;margin-bottom:.35rem}
+.stats-hd p{font-size:.86rem;color:var(--mutedlt)}
+
+/* STAT SUMMARY CARDS */
+.scard-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin-bottom:2rem}
+@media(min-width:560px){.scard-grid{grid-template-columns:repeat(4,1fr)}}
+.scard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.15rem 1.1rem;box-shadow:0 2px 10px var(--shadow)}
+.scard-lbl{font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:.85rem}
+.scard-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.45rem}
+.scard-row:last-child{margin-bottom:0}
+.scard-ctry{font-size:.77rem;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:.12rem;text-align:center;min-width:50px}
+.ctry-name{font-size:.63rem;font-weight:700;letter-spacing:.02em}
+.scard-val{font-family:'Playfair Display',serif;font-size:.86rem;font-weight:600}
+.v-ind{color:var(--red-id)}.v-chn{color:var(--gold2)}
+
+/* TABLE */
+.table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;overflow-x:auto;margin-bottom:2rem;box-shadow:0 2px 10px var(--shadow)}
+table{width:100%;border-collapse:collapse;min-width:500px}
+thead tr{background:var(--gold-light);border-bottom:1px solid var(--border2)}
+thead th{padding:.9rem 1.2rem;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;text-align:left;color:var(--muted);white-space:nowrap}
+thead th:nth-child(2){color:var(--red-id)}
+thead th:nth-child(3){color:var(--gold2)}
+tbody tr{border-bottom:1px solid var(--border);transition:background .18s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(184,137,42,0.04)}
+tbody td{padding:.8rem 1.2rem;font-size:.86rem;color:var(--textsub);line-height:1.5}
+tbody td:first-child{color:var(--muted);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}
+.td-center{text-align:center;color:var(--gold2)!important;font-weight:700}
+
+/* ─── CHARTS & DATA VIZ ─── */
+.chart-section{margin-bottom:2rem}
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6rem;box-shadow:0 2px 10px var(--shadow);margin-bottom:1.2rem}
+.chart-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--gold4);margin-bottom:1.4rem;display:flex;align-items:center;gap:.55rem}
+.chart-title svg{flex-shrink:0;opacity:.85}
+
+/* BAR CHART */
+.bar-chart{display:flex;flex-direction:column;gap:.9rem}
+.bar-group{display:flex;flex-direction:column;gap:.28rem}
+.bar-info{display:flex;justify-content:space-between;align-items:baseline;font-size:.8rem}
+.bar-lbl{color:var(--textsub);font-weight:600;display:flex;align-items:center;gap:.4rem}
+.bar-num{font-family:'Playfair Display',serif;font-weight:700;color:var(--gold4);font-size:.88rem}
+.bar-pct{font-size:.72rem;color:var(--muted);margin-left:.3rem}
+.bar-track{height:8px;background:rgba(0,0,0,0.06);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;border-radius:100px;transition:width 1s cubic-bezier(.22,.61,.36,1)}
+.bar-fill.id1{background:linear-gradient(90deg,#c0392b,#e07060)}
+.bar-fill.cn1{background:linear-gradient(90deg,#b8892a,#e8c05a)}
+.bar-fill.id2{background:linear-gradient(90deg,#2a7a7a,#5ab0b0)}
+.bar-fill.cn2{background:linear-gradient(90deg,#2e6b9e,#5a9ad0)}
+.bar-fill.g1{background:linear-gradient(90deg,var(--gold4),var(--gold3))}
+.bar-fill.g2{background:linear-gradient(90deg,#5a6090,#8090c0)}
+
+/* PIE / DONUT CHART */
+.donut-row{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.donut-wrap{position:relative;flex-shrink:0}
+.donut-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.donut-pct{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold4);line-height:1}
+.donut-sub{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:.15rem}
+.donut-legend{flex:1;display:flex;flex-direction:column;gap:.55rem}
+.leg-item{display:flex;align-items:center;gap:.55rem}
+.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.leg-name{font-size:.82rem;color:var(--textsub);font-weight:600}
+.leg-val{font-size:.75rem;color:var(--muted);margin-left:auto}
+
+/* RADAR / STAT TABLE */
+.stat-compare{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:2rem}
+@media(max-width:560px){.stat-compare{grid-template-columns:1fr}}
+.stat-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem;box-shadow:0 2px 10px var(--shadow)}
+.stat-block h4{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--gold4);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem}
+.stat-item{display:flex;justify-content:space-between;padding:.32rem 0;border-bottom:1px solid var(--border);font-size:.83rem}
+.stat-item:last-child{border-bottom:none}
+.stat-k{color:var(--muted);font-weight:500}
+.stat-v{color:var(--text);font-weight:700;font-family:'Playfair Display',serif}
+
+/* AVERAGE BOX */
+.avg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:2rem}
+@media(max-width:520px){.avg-grid{grid-template-columns:1fr}}
+.avg-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.1rem;text-align:center;box-shadow:0 2px 10px var(--shadow)}
+.avg-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--gold2);line-height:1.1}
+.avg-unit{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.2rem}
+.avg-desc{font-size:.78rem;color:var(--textsub);margin-top:.4rem;line-height:1.5}
+
+/* ─── STAGGERED CARD ENTRANCE ─── */
+.panel.active .tcard,
+.panel.active .pcard,
+.panel.active .scard-s,
+.panel.active .acard,
+.panel.active .mcard,
+.panel.active .scard,
+.panel.active .avg-card,
+.panel.active .chart-card,
+.panel.active .stat-block {
+  animation: cardEntrance 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.panel.active .tcard:nth-child(1),.panel.active .pcard:nth-child(1),.panel.active .scard-s:nth-child(1),.panel.active .scard:nth-child(1),.panel.active .avg-card:nth-child(1),.panel.active .chart-card:nth-child(1),.panel.active .stat-block:nth-child(1),.panel.active .acard:nth-child(1),.panel.active .mcard:nth-child(1){animation-delay:0s}
+.panel.active .tcard:nth-child(2),.panel.active .pcard:nth-child(2),.panel.active .scard-s:nth-child(2),.panel.active .scard:nth-child(2),.panel.active .avg-card:nth-child(2),.panel.active .chart-card:nth-child(2),.panel.active .stat-block:nth-child(2),.panel.active .acard:nth-child(2),.panel.active .mcard:nth-child(2){animation-delay:.07s}
+.panel.active .tcard:nth-child(3),.panel.active .pcard:nth-child(3),.panel.active .scard-s:nth-child(3),.panel.active .scard:nth-child(3),.panel.active .avg-card:nth-child(3),.panel.active .chart-card:nth-child(3),.panel.active .acard:nth-child(3),.panel.active .mcard:nth-child(3){animation-delay:.14s}
+.panel.active .tcard:nth-child(4),.panel.active .pcard:nth-child(4),.panel.active .scard-s:nth-child(4),.panel.active .scard:nth-child(4),.panel.active .acard:nth-child(4),.panel.active .mcard:nth-child(4){animation-delay:.21s}
+.panel.active .tcard:nth-child(5),.panel.active .pcard:nth-child(5),.panel.active .scard:nth-child(5){animation-delay:.28s}
+@keyframes cardEntrance {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.bar-fill { will-change: width; }
+
+/* FOOTER */
+footer{position:relative;z-index:2;border-top:1px solid var(--border);background:var(--surface);text-align:center;padding:2rem 1rem}
+footer p{font-size:.83rem;color:var(--mutedlt);letter-spacing:.04em}
+footer strong{color:var(--gold2);font-weight:700}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  header{padding:3rem 1.2rem 2.5rem}
+  .moon-hero-wrap{right:1rem;top:1rem}
+  .tbtn{font-size:.75rem;padding:.6rem .5rem}
+  .phero{padding:1.3rem}
+  .tcard{grid-template-columns:40px 1fr;padding:.9rem 1rem}
+  .astro-grid,.season-grid,.phase-grid,.menu-grid,.stat-compare{grid-template-columns:1fr}
+  .avg-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <canvas id="star-canvas"></canvas>
+  <div class="header-deco"></div>
+  <div class="header-pattern"></div>
+
+  <!-- Moon SVG hero -->
+  <div class="moon-hero-wrap">
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M52 36C52 45.9 43.9 54 34 54C24.1 54 16 45.9 16 36C16 26.1 24.1 18 34 18C28 23.5 28 48.5 52 36Z" fill="#b8892a" opacity=".9"/>
+      <circle cx="34" cy="36" r="18" fill="none" stroke="#b8892a" stroke-width=".7" stroke-dasharray="2.5 4" opacity=".3"/>
+      <path d="M58 13L59.2 17L63.2 17L60 19.2L61.2 23.2L58 21L54.8 23.2L56 19.2L52.8 17L56.8 17Z" fill="#c9972e" opacity=".75"/>
+      <path d="M14 8L15 11L18 11L15.7 12.7L16.5 15.7L14 14L11.5 15.7L12.3 12.7L10 11L13 11Z" fill="#c9972e" opacity=".5"/>
+      <circle cx="60" cy="42" r="1.5" fill="#c9972e" opacity=".4"/>
+      <circle cx="22" cy="14" r="1" fill="#c9972e" opacity=".35"/>
+    </svg>
+  </div>
+
+  <div class="badge">
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="5" r="1.5"/></svg>
+    Bulan Suci Ramadhan 1446 H
+  </div>
+  <h1>Ramadhan Cultural Exchange</h1>
+  <p class="sub-title">Eksplorasi Tradisi Ramadhan: Indonesia &amp; Cina</p>
+  <p class="tagline">Menelusuri keindahan ibadah, budaya, dan spiritualitas dua bangsa</p>
+  <div class="hflags">
+    <div class="fchip ind">
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><rect width="16" height="6" fill="#CE1126"/><rect y="6" width="16" height="6" fill="white"/></svg>
+      Indonesia · 241 Juta Muslim
+    </div>
+    <div class="fchip chn">
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><rect width="16" height="12" fill="#DE2910"/><polygon points="2.5,1.5 3.4,4.2 1,2.5 4,2.5 1.6,4.2" fill="#FFDE00"/><polygon points="5.5,0.5 5.8,1.4 6.7,1.4 6,1.9 6.3,2.8 5.5,2.3 4.7,2.8 5,1.9 4.3,1.4 5.2,1.4" fill="#FFDE00"/><polygon points="7,1.2 7.3,2.1 8.2,2.1 7.5,2.6 7.8,3.5 7,3 6.2,3.5 6.5,2.6 5.8,2.1 6.7,2.1" fill="#FFDE00"/><polygon points="7,3 7.3,3.9 8.2,3.9 7.5,4.4 7.8,5.3 7,4.8 6.2,5.3 6.5,4.4 5.8,3.9 6.7,3.9" fill="#FFDE00"/><polygon points="5.5,4.2 5.8,5.1 6.7,5.1 6,5.6 6.3,6.5 5.5,6 4.7,6.5 5,5.6 4.3,5.1 5.2,5.1" fill="#FFDE00"/></svg>
+      Cina · 25 Juta Muslim
+    </div>
+  </div>
+</header>
+
+<!-- ─── MAIN ─── -->
+<div class="wrap">
+
+  <!-- TABS -->
+  <div class="tab-rows">
+    <div class="tab-row">
+      <button class="tbtn active" onclick="openTab('indonesia',this)">
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" style="display:inline;vertical-align:middle;margin-right:5px"><rect width="14" height="5" fill="#CE1126"/><rect y="5" width="14" height="5" fill="white"/></svg>Indonesia
+      </button>
+      <button class="tbtn" onclick="openTab('cina',this)">
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" style="display:inline;vertical-align:middle;margin-right:5px"><rect width="14" height="10" fill="#DE2910"/><polygon points="2,1 2.8,3.4 0.5,1.9 3.5,1.9 1.2,3.4" fill="#FFDE00"/></svg>Cina
+      </button>
+    </div>
+    <div class="tab-row">
+      <button class="tbtn" onclick="openTab('perbandingan',this)">Perbandingan</button>
+      <button class="tbtn" onclick="openTab('menu',this)">Menu Puasa</button>
+    </div>
+    <div class="tab-row center">
+      <button class="tbtn" onclick="openTab('statistik',this)">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:5px"><rect x="0" y="7" width="3" height="6" fill="currentColor" rx="1"/><rect x="5" y="4" width="3" height="9" fill="currentColor" rx="1"/><rect x="10" y="1" width="3" height="12" fill="currentColor" rx="1"/></svg>
+        Statistik &amp; Grafik
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ INDONESIA ══ -->
+  <div id="indonesia" class="panel active">
+    <div class="phero">
+      <div class="hero-top">
+        <div class="hero-icon">
+          <svg width="26" height="20" viewBox="0 0 26 20" fill="none"><rect width="26" height="10" fill="#CE1126"/><rect y="10" width="26" height="10" fill="white"/></svg>
+        </div>
+        <div>
+          <div class="hero-h2">Tradisi Ramadhan di Indonesia</div>
+          <p class="hero-tg">Negara dengan populasi Muslim terbesar di dunia</p>
+        </div>
+      </div>
+      <p class="pdesc">Indonesia memiliki keberagaman budaya yang sangat kental selama bulan suci Ramadhan. Dengan lebih dari <strong>87% penduduk</strong> beragama Islam, Ramadhan menjadi momen paling meriah — dipengaruhi tradisi lokal dan nilai Islami yang berakar sejak penyebaran Islam oleh <em>Wali Songo</em> pada abad ke-13 Masehi.</p>
+    </div>
+
+    <p class="slabel first">Letak Astronomis Indonesia</p>
+    <div class="astro-grid single">
+      <div class="acard">
+        <div class="acard-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#b8892a" stroke-width="1.5"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" stroke="#b8892a" stroke-width="1"/></svg>
+        </div>
+        <h3>Posisi Geografis &amp; Astronomis Indonesia</h3>
+        <div class="arow"><span class="akey">Letak Lintang</span><span class="aval">6° LU – 11° LS (Lintang Utara hingga Selatan)</span></div>
+        <div class="arow"><span class="akey">Letak Bujur</span><span class="aval">95° BT – 141° BT (Bujur Timur)</span></div>
+        <div class="arow"><span class="akey">Posisi</span><span class="aval">Di antara Benua Asia &amp; Australia; Samudra Hindia &amp; Pasifik</span></div>
+        <div class="arow"><span class="akey">Iklim</span><span class="aval">Tropis — panas &amp; lembap sepanjang tahun (±28–34°C)</span></div>
+        <div class="arow"><span class="akey">Musim</span><span class="aval">2 musim: Hujan (Okt–Mar) &amp; Kemarau (Apr–Sep)</span></div>
+        <div class="arow"><span class="akey">Zona Waktu</span><span class="aval">WIB (UTC+7) · WITA (UTC+8) · WIT (UTC+9)</span></div>
+        <div class="arow"><span class="akey">Durasi Puasa</span><span class="aval">Stabil ±12–13 jam karena dekat garis ekuator</span></div>
+      </div>
+    </div>
+
+    <p class="slabel">Pengaruh Musim terhadap Ramadhan</p>
+    <div class="season-grid">
+      <div class="scard-s">
+        <h3>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3.5" fill="#c9972e"/><line x1="7" y1="0" x2="7" y2="2" stroke="#c9972e" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="7" y2="14" stroke="#c9972e" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="7" x2="2" y2="7" stroke="#c9972e" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="7" x2="14" y2="7" stroke="#c9972e" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Musim Kemarau
+        </h3>
+        <p class="stag">April – September · Panas &amp; Terik</p>
+        <div class="si">Suhu tinggi mempercepat dehidrasi — hidrasi jadi prioritas utama</div>
+        <div class="si">Pasar Ramadhan lebih ramai karena cuaca cerah, ngabuburit sore makin meriah</div>
+        <div class="si">Menu berbuka didominasi minuman segar: es cendol, es buah, kolak dingin</div>
+        <div class="si">Shalat tarawih &amp; tadarus lebih nyaman karena tidak hujan</div>
+      </div>
+      <div class="scard-s">
+        <h3>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2C5 2 3 4 3 6.5C3 9 5 11 7 11C9 11 11 9 11 6.5C11 4 9 2 7 2Z" fill="#5a9ad0" opacity=".3"/><path d="M4 3L2 5M10 3L12 5M7 1V0M3 7H1M13 7H11" stroke="#5a9ad0" stroke-width="1.2" stroke-linecap="round"/><path d="M5 11L4 13M9 11L10 13" stroke="#5a9ad0" stroke-width="1" stroke-linecap="round"/></svg>
+          Musim Hujan
+        </h3>
+        <p class="stag">Oktober – Maret · Sejuk &amp; Basah</p>
+        <div class="si">Udara sejuk membantu mengurangi rasa haus selama puasa</div>
+        <div class="si">Pasar Ramadhan pindah ke tenda atau lokasi tertutup</div>
+        <div class="si">Menu berbuka beralih ke sajian hangat: soto, bakso kuah, wedang jahe</div>
+        <div class="si">Ngabuburit di dalam masjid atau rumah menjadi pilihan utama</div>
+      </div>
+    </div>
+
+    <p class="slabel">Tradisi Berdasarkan Fase Ramadhan</p>
+    <div class="phase-grid">
+      <div class="pcard">
+        <div class="pcard-head menjelang">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Menjelang Ramadhan
+        </div>
+        <div class="pcard-body"><ul>
+          <li>Nyekar — ziarah makam leluhur untuk mendoakan arwah</li>
+          <li>Padusan/Mandi Besar — mandi suci sebagai simbol penyucian diri</li>
+          <li>Megengan — kenduri selamatan di Jawa menyambut Ramadhan</li>
+          <li>Munggahan — berkumpul keluarga besar khas tradisi Sunda</li>
+          <li>Bersih masjid dan mushola secara gotong royong</li>
+        </ul></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-head saat">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2C5 2 3.5 3.5 3.5 6.5C3.5 9.5 5 11 6.5 11C8 11 9.5 9.5 9.5 6.5C9.5 3.5 8 2 6.5 2Z" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="6.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          Saat Ramadhan
+        </div>
+        <div class="pcard-body"><ul>
+          <li>Ngabuburit — mengisi waktu menjelang buka di pasar takjil</li>
+          <li>Kentongan &amp; Bedug — penanda waktu sahur dan buka puasa</li>
+          <li>Pesantren Kilat — pendalaman agama di sekolah/masjid</li>
+          <li>Tadarus Al-Qur'an bersama setelah Tarawih</li>
+          <li>Bagi-bagi takjil gratis oleh komunitas dan masjid</li>
+        </ul></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-head akhir">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 10.5L6.5 2.5L10.5 10.5H2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><line x1="6.5" y1="6" x2="6.5" y2="8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Akhir Ramadhan
+        </div>
+        <div class="pcard-body"><ul>
+          <li>Iktikaf — berdiam diri di masjid pada 10 malam terakhir</li>
+          <li>Malam Nuzulul Qur'an — peringatan turunnya Al-Qur'an</li>
+          <li>Takbir keliling — pawai sambil mengumandangkan takbir</li>
+          <li>Membayar Zakat Fitrah wajib sebelum shalat Id</li>
+          <li>Persiapan ketupat, opor ayam, dan kue lebaran</li>
+        </ul></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-head idul">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5C4.5 2.5 3 4 3 6.5C3 9 4.5 10.5 6.5 10.5C8.5 10.5 10 9 10 6.5C10 4 8.5 2.5 6.5 2.5Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6.5L6 8L8.5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Idul Fitri
+        </div>
+        <div class="pcard-body"><ul>
+          <li>Shalat Id berjamaah di lapangan atau masjid besar</li>
+          <li>Halal bihalal — tradisi saling maaf-memaafkan massal</li>
+          <li>Mudik — pulang kampung berkumpul keluarga besar</li>
+          <li>Makan ketupat, opor ayam, rendang, dan kue nastar</li>
+          <li>Silaturahmi &amp; pemberian THR kepada anak-anak</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <p class="slabel">Lima Tradisi Utama Indonesia</p>
+    <div class="tgrid">
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4C8 4 5 6.5 5 10.5C5 14.5 8 17 11 17C14 17 17 14.5 17 10.5" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><path d="M15 4L17 2M17 6L19 4" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="10.5" r="2" fill="#b8892a" opacity=".3"/></svg></div>
+        <div><div class="ttitle">Ngabuburit</div><p class="tdesc">Mengisi waktu menjelang buka puasa dengan jalan-jalan, bermain, atau berburu takjil di pasar Ramadhan yang ramai dan penuh keceriaan khas Nusantara.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3C7.5 3 4 6 4 10C4 14 7.5 17 11 17V3Z" fill="#b8892a" opacity=".2"/><path d="M11 3C14.5 3 18 6 18 10C18 14 14.5 17 11 17" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><path d="M7 8.5C8.5 7 13 7 15 8.5" stroke="#b8892a" stroke-width="1" stroke-linecap="round" opacity=".5"/></svg></div>
+        <div><div class="ttitle">Nyekar</div><p class="tdesc">Ziarah dan pembersihan makam leluhur sebelum Ramadhan — bentuk penghormatan sekaligus medium mempererat tali silaturahmi antaranggota keluarga.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="5" width="14" height="12" rx="2" stroke="#b8892a" stroke-width="1.5"/><path d="M8 9h6M8 12h4" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3v2" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="ttitle">Pesantren Kilat</div><p class="tdesc">Kegiatan keagamaan intensif di sekolah untuk memperdalam ilmu agama, membaca Al-Qur'an, dan mempererat ukhuwah Islamiyah di kalangan pelajar.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><ellipse cx="11" cy="12" rx="6" ry="5" stroke="#b8892a" stroke-width="1.5"/><path d="M11 7V4M8 4h6" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><path d="M7 17v2M15 17v2" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="ttitle">Kentongan &amp; Bedug</div><p class="tdesc">Membunyikan bedug masjid dan kentongan menandai waktu sahur, imsak, dan berbuka — warisan budaya yang masih hidup di berbagai pelosok daerah.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 16l2-6 3 3 3-8 3 8 3-3 2 6" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 18h18" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="ttitle">Pasar Ramadhan</div><p class="tdesc">Pasar khusus tiap sore dengan aneka takjil dan kuliner daerah: kolak pisang, es cendol, gorengan segar, hingga ketupat dan opor ayam khas lokal.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CINA ══ -->
+  <div id="cina" class="panel">
+    <div class="phero">
+      <div class="hero-top">
+        <div class="hero-icon">
+          <svg width="26" height="20" viewBox="0 0 26 20" fill="none"><rect width="26" height="20" fill="#DE2910"/><polygon points="2.5,2 3.5,5.5 0.5,3.5 4.5,3.5 1.5,5.5" fill="#FFDE00" transform="scale(1.2) translate(0,0)"/></svg>
+        </div>
+        <div>
+          <div class="hero-h2">Tradisi Ramadhan di Cina</div>
+          <p class="hero-tg">Islam hadir sejak abad ke-7 melalui Jalur Sutra</p>
+        </div>
+      </div>
+      <p class="pdesc">Cina memiliki sekitar <strong>20–25 juta umat Muslim</strong>, sebagian besar dari suku <em>Hui</em> dan <em>Uyghur</em>. Ramadhan berlangsung unik — memadukan tradisi Islam ortodoks dengan budaya Tionghoa yang berakar ribuan tahun, terutama di Xinjiang, Gansu, dan Ningxia.</p>
+    </div>
+
+    <p class="slabel first">Letak Astronomis Cina</p>
+    <div class="astro-grid single">
+      <div class="acard">
+        <div class="acard-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#b8892a" stroke-width="1.5"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" stroke="#b8892a" stroke-width="1"/></svg>
+        </div>
+        <h3>Posisi Geografis &amp; Astronomis Cina</h3>
+        <div class="arow"><span class="akey">Letak Lintang</span><span class="aval">18° LU – 53° LU (hanya di belahan bumi utara)</span></div>
+        <div class="arow"><span class="akey">Letak Bujur</span><span class="aval">73° BT – 135° BT (Bujur Timur)</span></div>
+        <div class="arow"><span class="akey">Posisi</span><span class="aval">Asia Timur — berbatasan dengan 14 negara, terluas di Asia</span></div>
+        <div class="arow"><span class="akey">Iklim</span><span class="aval">Sangat beragam: tropis, subtropis, sedang, semi-arid, hingga arktik</span></div>
+        <div class="arow"><span class="akey">Musim</span><span class="aval">4 musim: Semi, Panas, Gugur, Dingin</span></div>
+        <div class="arow"><span class="akey">Zona Waktu</span><span class="aval">CST (UTC+8) — satu zona resmi untuk seluruh wilayah</span></div>
+        <div class="arow"><span class="akey">Durasi Puasa</span><span class="aval">Bervariasi ±11 jam (musim dingin) hingga ±16 jam (musim panas) di utara</span></div>
+      </div>
+    </div>
+
+    <p class="slabel">Pengaruh Musim terhadap Ramadhan</p>
+    <div class="season-grid">
+      <div class="scard-s">
+        <h3>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3.5" fill="#c9972e"/><line x1="7" y1="0" x2="7" y2="2" stroke="#c9972e" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="7" y2="14" stroke="#c9972e" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="7" x2="2" y2="7" stroke="#c9972e" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="7" x2="14" y2="7" stroke="#c9972e" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Musim Panas
+        </h3>
+        <p class="stag">Juni – Agustus · Panas &amp; Hari Panjang</p>
+        <div class="si">Durasi puasa bisa mencapai 15–16 jam di wilayah utara Cina</div>
+        <div class="si">Cuaca ekstrem memperbanyak konsumsi cairan dan makanan bergizi tinggi</div>
+        <div class="si">Komunitas Uyghur di Xinjiang gelar pasar malam Ramadhan outdoor</div>
+        <div class="si">Banyak umat Muslim menggelar buka puasa bersama di luar rumah</div>
+      </div>
+      <div class="scard-s">
+        <h3>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C4.5 1.5 2 4 2 7C2 10 4.5 12.5 7 12.5" stroke="#5a9ad0" stroke-width="1.3" stroke-linecap="round"/><path d="M8.5 3.5C10.5 3.5 12 5 12 7C12 9 10.5 10.5 8.5 10.5" stroke="#5a9ad0" stroke-width="1.3" stroke-linecap="round"/></svg>
+          Musim Dingin
+        </h3>
+        <p class="stag">Desember – Februari · Dingin &amp; Hari Pendek</p>
+        <div class="si">Durasi puasa lebih pendek (~11–12 jam) karena hari lebih singkat</div>
+        <div class="si">Menu berbuka dan sahur didominasi masakan berkuah panas dan daging</div>
+        <div class="si">Masjid Niujie jadi pusat komunitas untuk ibadah sekaligus penghangat bersama</div>
+        <div class="si">Tradisi teh susu hangat semakin kental dalam ritual berbuka suku Hui</div>
+      </div>
+      <div class="scard-s">
+        <h3>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 10C5 7 7 6 11 7" stroke="#5a7a30" stroke-width="1.3" stroke-linecap="round"/><path d="M5 12C6.5 9 8 7.5 11 8.5" stroke="#5a7a30" stroke-width="1.3" stroke-linecap="round"/><circle cx="7" cy="4" r="2" fill="#5a7a30" opacity=".3"/></svg>
+          Musim Semi
+        </h3>
+        <p class="stag">Maret – Mei · Sejuk &amp; Nyaman</p>
+        <div class="si">Kondisi paling ideal untuk ibadah puasa — tidak terlalu panas atau dingin</div>
+        <div class="si">Komunitas Muslim lebih banyak berdakwah &amp; acara di luar ruangan</div>
+        <div class="si">Kebun di Ningxia dan Gansu berbuah, bahan makanan iftar lebih beragam</div>
+      </div>
+      <div class="scard-s">
+        <h3>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2L8.5 5.5H12L9 7.5L10.5 11L7 9L3.5 11L5 7.5L2 5.5H5.5Z" stroke="#9a6a20" stroke-width="1" fill="#9a6a20" opacity=".2"/></svg>
+          Musim Gugur
+        </h3>
+        <p class="stag">September – November · Sejuk &amp; Kering</p>
+        <div class="si">Udara kering membuat tenggorokan lebih mudah haus saat berpuasa</div>
+        <div class="si">Hasil panen melimpah membuat menu berbuka lebih kaya sayur dan buah</div>
+        <div class="si">Tradisi memasak massal (sup dan semur daging) semakin kental</div>
+      </div>
+    </div>
+
+    <p class="slabel">Tradisi Berdasarkan Fase Ramadhan</p>
+    <div class="phase-grid">
+      <div class="pcard">
+        <div class="pcard-head menjelang">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Menjelang Ramadhan
+        </div>
+        <div class="pcard-body"><ul>
+          <li>Membersihkan dan menghiasi masjid dengan kaligrafi Arab &amp; lampion</li>
+          <li>Komunitas Hui gelar doa bersama di masjid lingkungan</li>
+          <li>Persiapan bahan makanan khas: tepung, daging halal, rempah</li>
+          <li>Pengumuman waktu puasa oleh imam masjid setempat</li>
+          <li>Kunjungan silaturahmi antar keluarga Muslim</li>
+        </ul></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-head saat">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2C5 2 3.5 3.5 3.5 6.5C3.5 9.5 5 11 6.5 11C8 11 9.5 9.5 9.5 6.5C9.5 3.5 8 2 6.5 2Z" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="6.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          Saat Ramadhan
+        </div>
+        <div class="pcard-body"><ul>
+          <li>Zhai Jie (斋戒) — puasa penuh dengan shalat &amp; Tarawih berjamaah</li>
+          <li>Pasar malam halal di Xinjiang dan Ningxia hingga larut malam</li>
+          <li>Nasyid Uyghur dengan dutar &amp; rawap mengiringi zikir</li>
+          <li>Ceramah agama di Masjid Niujie Beijing setiap malam</li>
+          <li>Distribusi makanan gratis oleh komunitas Hui</li>
+        </ul></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-head akhir">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 10.5L6.5 2.5L10.5 10.5H2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><line x1="6.5" y1="6" x2="6.5" y2="8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Akhir Ramadhan
+        </div>
+        <div class="pcard-body"><ul>
+          <li>Iktikaf 10 malam terakhir di masjid-masjid bersejarah</li>
+          <li>Khatam Al-Qur'an secara bergilir sepanjang malam</li>
+          <li>Zakat Fitrah kepada warga Muslim kurang mampu</li>
+          <li>Persiapan pakaian baru dan makanan khas hari raya</li>
+          <li>Masjid dihiasi lebih meriah dengan lampu dan kaligrafi emas</li>
+        </ul></div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-head idul">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2.5C4.5 2.5 3 4 3 6.5C3 9 4.5 10.5 6.5 10.5C8.5 10.5 10 9 10 6.5C10 4 8.5 2.5 6.5 2.5Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 6.5L6 8L8.5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Idul Fitri
+        </div>
+        <div class="pcard-body"><ul>
+          <li>Shalat Id di masjid besar seperti Niujie &amp; Id Kah Mosque Kashgar</li>
+          <li>Angpao merah khas Tionghoa dengan kue nian gao versi halal</li>
+          <li>Tarian Uyghur (Sama Dance) di alun-alun kota</li>
+          <li>Makan bersama keluarga besar dengan hidangan suku Hui &amp; Uyghur</li>
+          <li>Kunjungan ke makam leluhur perpaduan tradisi Tionghoa-Islam</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <p class="slabel">Lima Tradisi Utama Cina</p>
+    <div class="tgrid">
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 9h12M5 9C5 6 6.5 4 11 4C15.5 4 17 6 17 9v6H5V9Z" stroke="#b8892a" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 15v2M14 15v2" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><path d="M11 4V2" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="ttitle">Zhai Jie · 斋戒</div><p class="tdesc">Ibadah puasa penuh kekhusyukan. Di Yinchuan dan Kashgar, masjid-masjid bersejarah menjadi pusat kegiatan ibadah sepanjang bulan suci berlangsung.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 14C4 11 6 8 11 8C16 8 18 11 18 14" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><path d="M7 14H15L14 18H8L7 14Z" stroke="#b8892a" stroke-width="1.5" stroke-linejoin="round"/><circle cx="11" cy="6" r="2" stroke="#b8892a" stroke-width="1.5"/></svg></div>
+        <div><div class="ttitle">Iftar Khas Suku Hui</div><p class="tdesc">Hidangan berbuka khas suku Hui: Niurou Mian (mie sapi Lanzhou), kue beras manis, dan teh herbal — perpaduan cita rasa Islam dengan kuliner Tionghoa.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M6 17V8l5-4 5 4v9" stroke="#b8892a" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 11h4v6H9z" stroke="#b8892a" stroke-width="1.5"/><path d="M11 4V2" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="ttitle">Nasyid &amp; Musik Islam</div><p class="tdesc">Komunitas Muslim Uyghur memadukan doa dan zikir dengan melodi Asia Tengah menggunakan instrumen khas dutar dan rawap bernilai spiritual tinggi.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 18V9l7-5 7 5v9" stroke="#b8892a" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 18v-5h4v5" stroke="#b8892a" stroke-width="1.5" stroke-linejoin="round"/><path d="M11 4V2" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="ttitle">Ziarah Masjid Niujie</div><p class="tdesc">Masjid Niujie di Beijing, berdiri sejak <strong>996 M</strong>, menjadi tempat berkumpul komunitas Muslim untuk shalat tarawih dan tadarus bersama setiap malam.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="ticon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3C8.5 3 6 5.5 6 9.5C6 11.5 8 14 11 14C14 14 16 11.5 16 9.5C16 5.5 13.5 3 11 3Z" stroke="#b8892a" stroke-width="1.5"/><path d="M8 9.5C9.2 8 12.8 8 14 9.5" stroke="#b8892a" stroke-width="1" stroke-linecap="round" opacity=".5"/><path d="M7 16c0 0 4 3 8 0" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="ttitle">Malam Lailatul Qadar</div><p class="tdesc">Di Ningxia, 10 malam terakhir Ramadhan diisi iktikaf di masjid, pembacaan Al-Qur'an sepanjang malam, dan sedekah kepada sesama umat.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PERBANDINGAN ══ -->
+  <div id="perbandingan" class="panel">
+    <div class="phero">
+      <div class="hero-top">
+        <div class="hero-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 6h16M4 18h16" stroke="#b8892a" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="6" r="2" fill="#b8892a"/><circle cx="15" cy="12" r="2" fill="#b8892a"/><circle cx="9" cy="18" r="2" fill="#b8892a"/></svg>
+        </div>
+        <div>
+          <div class="hero-h2">Perbandingan Indonesia &amp; Cina</div>
+          <p class="hero-tg">Astronomis, selisih puasa, dan pengaruh iklim terhadap tradisi</p>
+        </div>
+      </div>
+      <p class="pdesc">Perbedaan letak astronomis antara Indonesia dan Cina menghasilkan <strong>pengalaman Ramadhan yang sangat berbeda</strong> — mulai dari durasi puasa, pilihan menu, hingga nuansa tradisi yang terbentuk dari interaksi antara agama Islam dan budaya lokal masing-masing bangsa.</p>
+    </div>
+
+    <p class="slabel first">Perbandingan Letak Astronomis</p>
+    <div class="astro-grid">
+      <div class="acard">
+        <div class="acard-icon"><svg width="20" height="16" viewBox="0 0 20 16" fill="none"><rect width="20" height="8" fill="#CE1126"/><rect y="8" width="20" height="8" fill="white"/></svg></div>
+        <h3>Indonesia</h3>
+        <div class="arow"><span class="akey">Lintang</span><span class="aval">6° LU – 11° LS</span></div>
+        <div class="arow"><span class="akey">Bujur</span><span class="aval">95° BT – 141° BT</span></div>
+        <div class="arow"><span class="akey">Benua</span><span class="aval">Asia Tenggara (Kepulauan)</span></div>
+        <div class="arow"><span class="akey">Iklim</span><span class="aval">Tropis (2 musim)</span></div>
+        <div class="arow"><span class="akey">Durasi Siang</span><span class="aval">±12–13 jam (stabil)</span></div>
+        <div class="arow"><span class="akey">Zona Waktu</span><span class="aval">UTC+7 / +8 / +9</span></div>
+      </div>
+      <div class="acard">
+        <div class="acard-icon"><svg width="20" height="16" viewBox="0 0 20 16" fill="none"><rect width="20" height="16" fill="#DE2910"/><polygon points="3,2 4,5.5 1,3.5 5,3.5 2,5.5" fill="#FFDE00" transform="scale(1.1)"/></svg></div>
+        <h3>Cina</h3>
+        <div class="arow"><span class="akey">Lintang</span><span class="aval">18° LU – 53° LU</span></div>
+        <div class="arow"><span class="akey">Bujur</span><span class="aval">73° BT – 135° BT</span></div>
+        <div class="arow"><span class="akey">Benua</span><span class="aval">Asia Timur (Daratan)</span></div>
+        <div class="arow"><span class="akey">Iklim</span><span class="aval">Beragam (4 musim)</span></div>
+        <div class="arow"><span class="akey">Durasi Siang</span><span class="aval">±11–16 jam (berubah tiap musim)</span></div>
+        <div class="arow"><span class="akey">Zona Waktu</span><span class="aval">UTC+8 (satu zona)</span></div>
+      </div>
+    </div>
+
+    <p class="slabel">Selisih Durasi Puasa Indonesia dan Cina</p>
+    <div class="diff-wrap">
+      <div class="diff-title">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="0" y="8" width="4" height="7" fill="#b8892a" rx="1"/><rect x="5.5" y="5" width="4" height="10" fill="#b8892a" rx="1"/><rect x="11" y="2" width="4" height="13" fill="#b8892a" rx="1"/></svg>
+        Perbandingan Panjang Hari Puasa
+      </div>
+      <div class="diff-bars">
+        <div class="dbar-row">
+          <div class="dbar-meta">
+            <span class="dbar-label"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><rect width="10" height="4" fill="#CE1126"/><rect y="4" width="10" height="4" fill="white"/></svg>Indonesia (sepanjang tahun)</span>
+            <span class="dbar-val">12–13 jam · Rata-rata 12,5 jam</span>
+          </div>
+          <div class="dbar-bg"><div class="dbar-fill ind"></div></div>
+        </div>
+        <div class="dbar-row">
+          <div class="dbar-meta">
+            <span class="dbar-label"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><rect width="10" height="8" fill="#DE2910"/></svg>Cina — Musim Panas (utara)</span>
+            <span class="dbar-val">15–16 jam · Rata-rata 15,5 jam</span>
+          </div>
+          <div class="dbar-bg"><div class="dbar-fill chn-hot"></div></div>
+        </div>
+        <div class="dbar-row">
+          <div class="dbar-meta">
+            <span class="dbar-label"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><rect width="10" height="8" fill="#5a9ad0"/></svg>Cina — Musim Dingin (utara)</span>
+            <span class="dbar-val">11–12 jam · Rata-rata 11,5 jam</span>
+          </div>
+          <div class="dbar-bg"><div class="dbar-fill chn-cold"></div></div>
+        </div>
+      </div>
+      <p class="diff-note">
+        <strong>Mengapa berbeda?</strong> Indonesia berada sangat dekat <em>garis khatulistiwa</em>, sehingga panjang siang hampir selalu sama (~12 jam). Sebaliknya, Cina berada di lintang tinggi (18°–53° LU), sehingga panjang siang sangat dipengaruhi musim. Selisih maksimal bisa mencapai <strong>3–4 jam lebih panjang di Cina</strong> saat Ramadhan jatuh di musim panas.
+      </p>
+    </div>
+
+    <p class="slabel">Pengaruh Iklim &amp; Musim terhadap Tradisi dan Pola Makan</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Aspek</th><th>Indonesia</th><th>Cina</th></tr></thead>
+        <tbody>
+          <tr><td>Iklim saat Ramadhan</td><td>Tropis — panas &amp; lembap (±28–34°C)</td><td>Bervariasi: −5°C hingga 38°C bergantung musim</td></tr>
+          <tr><td>Durasi Puasa</td><td>Stabil 12–13 jam sepanjang tahun</td><td>Berubah 11–16 jam tergantung musim &amp; lokasi</td></tr>
+          <tr><td>Menu Buka saat Panas</td><td>Es cendol, es buah, kolak dingin, jus</td><td>Teh susu dingin, buah segar, mie dingin</td></tr>
+          <tr><td>Menu Buka saat Dingin</td><td>Soto hangat, wedang jahe, kolak panas</td><td>Sup daging domba, niurou mian, teh herbal</td></tr>
+          <tr><td>Dampak pada Tradisi</td><td>Ngabuburit ramai di kemarau; indoor di hujan</td><td>Pasar malam outdoor hanya di musim panas &amp; semi</td></tr>
+          <tr><td>Pola Sahur</td><td>Nasi + lauk pauk bergizi, buah, air putih banyak</td><td>Roti naan, daging domba/sapi, sup panas, kurma</td></tr>
+          <tr><td>Pengaruh pada Ibadah</td><td>Tarawih nyaman sepanjang tahun — iklim stabil</td><td>Tarawih dalam masjid lebih intim saat musim dingin</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ MENU ══ -->
+  <div id="menu" class="panel">
+    <div class="phero">
+      <div class="hero-top">
+        <div class="hero-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 3v8c0 2.5 2 4 5 4s5-1.5 5-4V3" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><path d="M6 11h12M11 15v6M9 21h6" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="hero-h2">Menu Berbuka &amp; Sahur</div>
+          <p class="hero-tg">Perpaduan cita rasa Nusantara dan Tionghoa-Islam dalam tradisi puasa</p>
+        </div>
+      </div>
+      <p class="pdesc">Pilihan makanan berbuka dan sahur sangat dipengaruhi <strong>iklim, budaya lokal, dan ketersediaan bahan</strong> di masing-masing negara. Indonesia kaya rempah tropis, sementara Cina menonjolkan masakan berbasis daging halal dan tepung khas suku <em>Hui</em> &amp; <em>Uyghur</em>.</p>
+    </div>
+
+    <p class="slabel first">Menu Berbuka Puasa</p>
+    <div class="menu-grid">
+      <div class="mcard">
+        <div class="mcard-head buka">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3v4l2.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Berbuka · Indonesia
+        </div>
+        <div class="mcard-body">
+          <div class="mcol"><div class="mcol-flag ind">Minuman Pembuka</div><div class="menu-items"><span class="mtag">Es Cendol</span><span class="mtag">Es Buah</span><span class="mtag">Kolak Pisang</span><span class="mtag">Kurma</span><span class="mtag">Wedang Jahe</span><span class="mtag">Sirup Marjan</span></div></div>
+          <div class="mcol"><div class="mcol-flag ind">Takjil &amp; Camilan</div><div class="menu-items"><span class="mtag">Gorengan</span><span class="mtag">Pastel</span><span class="mtag">Risoles</span><span class="mtag">Lumpia</span><span class="mtag">Klepon</span><span class="mtag">Putu Ayu</span></div></div>
+          <div class="mcol"><div class="mcol-flag ind">Makanan Utama</div><div class="menu-items"><span class="mtag">Nasi &amp; Lauk</span><span class="mtag">Soto Ayam</span><span class="mtag">Opor Ayam</span><span class="mtag">Rendang</span><span class="mtag">Lontong Sayur</span><span class="mtag">Bakso Kuah</span></div></div>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-head buka">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3v4l2.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Berbuka · Cina
+        </div>
+        <div class="mcard-body">
+          <div class="mcol"><div class="mcol-flag chn">Minuman Pembuka</div><div class="menu-items"><span class="mtag">Kurma</span><span class="mtag">Teh Susu Hui</span><span class="mtag">Teh Herbal</span><span class="mtag">Air Zam-zam</span><span class="mtag">Jus Delima</span></div></div>
+          <div class="mcol"><div class="mcol-flag chn">Camilan</div><div class="menu-items"><span class="mtag">Naan Panggang</span><span class="mtag">Samsa (Pastri Daging)</span><span class="mtag">Kue Beras Manis</span><span class="mtag">Buah Segar</span></div></div>
+          <div class="mcol"><div class="mcol-flag chn">Makanan Utama</div><div class="menu-items"><span class="mtag">Niurou Mian</span><span class="mtag">Sup Domba</span><span class="mtag">Nasi Pilaf Uyghur</span><span class="mtag">Dapanji</span><span class="mtag">Mantou Halal</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="slabel">Menu Sahur</p>
+    <div class="menu-grid">
+      <div class="mcard">
+        <div class="mcard-head sahur">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2C4 2 2 4 2 6.5C2 9 4 11 6.5 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M8 3.5C9.5 3.5 11 5 11 6.5C11 8 9.5 9.5 8 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Sahur · Indonesia
+        </div>
+        <div class="mcard-body">
+          <div class="mcol"><div class="mcol-flag ind">Minuman</div><div class="menu-items"><span class="mtag">Air Putih</span><span class="mtag">Susu</span><span class="mtag">Teh Manis</span><span class="mtag">Jus Buah</span><span class="mtag">Kopi Hangat</span></div></div>
+          <div class="mcol"><div class="mcol-flag ind">Makanan Utama</div><div class="menu-items"><span class="mtag">Nasi Goreng</span><span class="mtag">Telur Dadar</span><span class="mtag">Bubur Ayam</span><span class="mtag">Mi Goreng</span><span class="mtag">Sayur Bayam</span><span class="mtag">Tempe &amp; Tahu</span></div></div>
+          <div class="mcol"><div class="mcol-flag ind">Buah &amp; Suplemen</div><div class="menu-items"><span class="mtag">Pisang</span><span class="mtag">Kurma</span><span class="mtag">Pepaya</span><span class="mtag">Madu</span><span class="mtag">Vitamin C</span></div></div>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-head sahur">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2C4 2 2 4 2 6.5C2 9 4 11 6.5 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M8 3.5C9.5 3.5 11 5 11 6.5C11 8 9.5 9.5 8 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Sahur · Cina
+        </div>
+        <div class="mcard-body">
+          <div class="mcol"><div class="mcol-flag chn">Minuman</div><div class="menu-items"><span class="mtag">Air Putih</span><span class="mtag">Teh Hijau</span><span class="mtag">Teh Susu Hangat</span><span class="mtag">Jus Buah</span></div></div>
+          <div class="mcol"><div class="mcol-flag chn">Makanan Utama</div><div class="menu-items"><span class="mtag">Bubur (Congee)</span><span class="mtag">Roti Naan</span><span class="mtag">Telur Rebus</span><span class="mtag">Sup Sapi</span><span class="mtag">Baozi Halal</span><span class="mtag">Mie Sup</span></div></div>
+          <div class="mcol"><div class="mcol-flag chn">Buah &amp; Suplemen</div><div class="menu-items"><span class="mtag">Kurma</span><span class="mtag">Apel</span><span class="mtag">Pir</span><span class="mtag">Kacang-kacangan</span><span class="mtag">Madu</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="slabel">Catatan Gizi &amp; Pola Makan</p>
+    <div class="tgrid">
+      <div class="tcard"><div class="ticon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v14M6 7c0 0 4-1 8 0" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/><path d="M5 10h10" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="ttitle">Hidrasi di Iklim Tropis (Indonesia)</div><p class="tdesc">Karena suhu tinggi dan lembap, umat Muslim Indonesia mementingkan hidrasi. Minuman segar dan buah berair tinggi seperti semangka, melon, dan kelapa muda menjadi andalan sahur dan berbuka.</p></div></div>
+      <div class="tcard"><div class="ticon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 17l3-8 4 3 3-8" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17h12" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="ttitle">Energi di Iklim Dingin (Cina Utara)</div><p class="tdesc">Di musim dingin, tubuh butuh lebih banyak kalori. Suku Hui dan Uyghur mengandalkan daging domba, sup kaldu, dan karbohidrat kompleks dari naan dan bubur sebagai sumber energi sahur.</p></div></div>
+      <div class="tcard"><div class="ticon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3C7 3 4 5.5 4 9C4 12.5 7 15 10 15C13 15 16 12.5 16 9C16 5.5 13 3 10 3Z" stroke="#b8892a" stroke-width="1.5"/><path d="M7 9c1-2 5-2 6 0" stroke="#b8892a" stroke-width="1" stroke-linecap="round" opacity=".5"/></svg></div><div><div class="ttitle">Kekayaan Rempah Nusantara</div><p class="tdesc">Indonesia memanfaatkan jahe, kunyit, kayu manis, dan pandan bukan hanya sebagai bumbu, tetapi juga minuman herbal yang meningkatkan daya tahan tubuh selama bulan puasa.</p></div></div>
+      <div class="tcard"><div class="ticon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 5C6 3.5 8 2 10 2C12 2 14 3.5 14 5V8H6V5Z" stroke="#b8892a" stroke-width="1.5" stroke-linejoin="round"/><rect x="4" y="8" width="12" height="9" rx="2" stroke="#b8892a" stroke-width="1.5"/><path d="M8 13h4" stroke="#b8892a" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="ttitle">Tradisi Teh Suku Hui</div><p class="tdesc">Suku Hui memiliki tradisi teh herbal khusus <em>Gaiwan Cha</em> — campuran krisan, wolfberry (goji), dan gula batu — dipercaya memperkuat stamina dan menjaga kesehatan pencernaan selama puasa.</p></div></div>
+    </div>
+  </div>
+
+  <!-- ══ STATISTIK ══ -->
+  <div id="statistik" class="panel">
+    <div class="stats-hd">
+      <h2>Statistik &amp; Visualisasi Data</h2>
+      <p>Data demografis, durasi puasa, persentase, rata-rata, dan perbandingan Ramadhan Indonesia vs Cina.</p>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <p class="slabel first">Ringkasan Data Utama</p>
+    <div class="scard-grid">
+      <div class="scard">
+        <div class="scard-lbl">Durasi Puasa</div>
+        <div class="scard-row">
+          <span class="scard-ctry"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect width="18" height="7" fill="#CE1126"/><rect y="7" width="18" height="7" fill="white"/></svg><span class="ctry-name">Indonesia</span></span>
+          <span class="scard-val v-ind">12–13 Jam</span>
+        </div>
+        <div class="scard-row">
+          <span class="scard-ctry"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect width="18" height="14" fill="#DE2910"/><polygon points="2,1.5 2.8,4 0.5,2.5 4,2.5 1.5,4" fill="#FFDE00"/></svg><span class="ctry-name">Cina</span></span>
+          <span class="scard-val v-chn">11–16 Jam</span>
+        </div>
+      </div>
+      <div class="scard">
+        <div class="scard-lbl">Muslim (juta)</div>
+        <div class="scard-row">
+          <span class="scard-ctry"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect width="18" height="7" fill="#CE1126"/><rect y="7" width="18" height="7" fill="white"/></svg><span class="ctry-name">Indonesia</span></span>
+          <span class="scard-val v-ind">241 Jt</span>
+        </div>
+        <div class="scard-row">
+          <span class="scard-ctry"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect width="18" height="14" fill="#DE2910"/><polygon points="2,1.5 2.8,4 0.5,2.5 4,2.5 1.5,4" fill="#FFDE00"/></svg><span class="ctry-name">Cina</span></span>
+          <span class="scard-val v-chn">~25 Jt</span>
+        </div>
+      </div>
+      <div class="scard">
+        <div class="scard-lbl">Iklim</div>
+        <div class="scard-row">
+          <span class="scard-ctry"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect width="18" height="7" fill="#CE1126"/><rect y="7" width="18" height="7" fill="white"/></svg><span class="ctry-name">Indonesia</span></span>
+          <span class="scard-val v-ind">Tropis</span>
+        </div>
+        <div class="scard-row">
+          <span class="scard-ctry"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect width="18" height="14" fill="#DE2910"/><polygon points="2,1.5 2.8,4 0.5,2.5 4,2.5 1.5,4" fill="#FFDE00"/></svg><span class="ctry-name">Cina</span></span>
+          <span class="scard-val v-chn">4 Musim</span>
+        </div>
+      </div>
+      <div class="scard">
+        <div class="scard-lbl">Islam Masuk</div>
+        <div class="scard-row">
+          <span class="scard-ctry"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect width="18" height="7" fill="#CE1126"/><rect y="7" width="18" height="7" fill="white"/></svg><span class="ctry-name">Indonesia</span></span>
+          <span class="scard-val v-ind">Abad 13</span>
+        </div>
+        <div class="scard-row">
+          <span class="scard-ctry"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><rect width="18" height="14" fill="#DE2910"/><polygon points="2,1.5 2.8,4 0.5,2.5 4,2.5 1.5,4" fill="#FFDE00"/></svg><span class="ctry-name">Cina</span></span>
+          <span class="scard-val v-chn">Abad 7</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RATA-RATA BOXES -->
+    <p class="slabel">Nilai Rata-rata &amp; Persentase Kunci</p>
+    <div class="avg-grid">
+      <div class="avg-card">
+        <div class="avg-num">12,5</div>
+        <div class="avg-unit">Jam · Rata-rata Puasa Indonesia</div>
+        <div class="avg-desc">Stabil sepanjang tahun karena posisi ekuatorial</div>
+      </div>
+      <div class="avg-card">
+        <div class="avg-num">13,5</div>
+        <div class="avg-unit">Jam · Rata-rata Puasa Cina</div>
+        <div class="avg-desc">Rata-rata dari 11 jam (dingin) hingga 16 jam (panas)</div>
+      </div>
+      <div class="avg-card">
+        <div class="avg-num">+1,0</div>
+        <div class="avg-unit">Jam · Selisih Rata-rata</div>
+        <div class="avg-desc">Cina rata-rata 1 jam lebih panjang dari Indonesia</div>
+      </div>
+    </div>
+
+    <!-- GRAFIK: POPULASI MUSLIM -->
+    <p class="slabel">Grafik Populasi Muslim</p>
+    <div class="chart-card">
+      <div class="chart-title">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="0" y="8" width="4" height="7" fill="#b8892a" rx="1"/><rect x="5.5" y="5" width="4" height="10" fill="#b8892a" rx="1"/><rect x="11" y="2" width="4" height="13" fill="#b8892a" rx="1"/></svg>
+        Populasi Muslim — Jumlah &amp; Persentase terhadap Total Penduduk
+      </div>
+
+      <!-- LEGEND -->
+      <div style="display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.6rem">
+        <div style="display:flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--textsub)">
+          <div style="width:12px;height:12px;border-radius:3px;background:linear-gradient(90deg,#c0392b,#e07060)"></div> Muslim
+        </div>
+        <div style="display:flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--textsub)">
+          <div style="width:12px;height:12px;border-radius:3px;background:#c5bfb0"></div> Non-Muslim
+        </div>
+        <div style="display:flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--textsub)">
+          <div style="width:14px;height:2px;background:var(--gold4);border-radius:2px"></div>
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--gold4);margin-left:-8px"></div>
+          Garis Pemisah
+        </div>
+      </div>
+
+      <!-- ── INDONESIA ── -->
+      <div style="margin-bottom:2rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+          <span style="font-size:.83rem;font-weight:700;color:var(--textsub);display:flex;align-items:center;gap:.45rem">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><rect width="14" height="5" fill="#CE1126"/><rect y="5" width="14" height="5" fill="white"/></svg>
+            Indonesia
+          </span>
+          <span style="font-size:.74rem;color:var(--muted)">Total populasi: 277 Juta Jiwa</span>
+        </div>
+        <!-- Bar -->
+        <div style="position:relative;height:42px;background:#ede8df;border-radius:10px;overflow:hidden;">
+          <!-- Muslim fill -->
+          <div class="stacked-seg" style="position:absolute;left:0;top:0;height:100%;width:87%;background:linear-gradient(90deg,#b03020,#d95040,#e8786a);border-radius:10px 0 0 10px;display:flex;align-items:center;padding-left:.8rem;overflow:hidden">
+            <span style="font-size:.76rem;font-weight:700;color:white;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.25)">Muslim · 241 Juta · 87%</span>
+          </div>
+          <!-- Non-Muslim fill -->
+          <div class="stacked-seg" style="position:absolute;right:0;top:0;height:100%;width:13%;background:linear-gradient(90deg,#bab5aa,#d0ccc4);border-radius:0 10px 10px 0;display:flex;align-items:center;justify-content:center;overflow:hidden">
+            <span style="font-size:.7rem;font-weight:700;color:#6a5f50;white-space:nowrap">13%</span>
+          </div>
+          <!-- Divider line (overflow:hidden on parent clips it, so use outline trick via box-shadow) -->
+        </div>
+        <!-- Divider outside bar (overlay) -->
+        <div style="position:relative;height:0;overflow:visible">
+          <div class="stacked-divider" style="position:absolute;left:87%;top:-42px;height:42px;width:2.5px;background:var(--gold4);z-index:5;pointer-events:none">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:var(--gold4);border:2px solid white;box-shadow:0 0 0 2px var(--gold4)"></div>
+          </div>
+        </div>
+        <!-- Labels below bar -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:.4rem">
+          <div style="display:flex;flex-direction:column;gap:.1rem">
+            <span style="font-size:.65rem;color:var(--muted)">0%</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:.1rem;position:relative;left:calc(87% - 50%)">
+            <span style="font-size:.68rem;font-weight:800;color:var(--gold4);background:var(--gold-light);border:1px solid var(--border2);padding:.1rem .4rem;border-radius:4px;white-space:nowrap">87% ↔ 13%</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.1rem;align-items:flex-end">
+            <span style="font-size:.65rem;color:var(--muted)">100%</span>
+          </div>
+        </div>
+        <!-- Scale ticks -->
+        <div style="display:flex;justify-content:space-between;padding:0 2px;margin-top:.15rem">
+          <span style="font-size:.6rem;color:var(--mutedlt)">0%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">25%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">50%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">75%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">100%</span>
+        </div>
+      </div>
+
+      <!-- ── CINA ── -->
+      <div style="margin-bottom:.5rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+          <span style="font-size:.83rem;font-weight:700;color:var(--textsub);display:flex;align-items:center;gap:.45rem">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><rect width="14" height="10" fill="#DE2910"/><polygon points="1.5,1.2 2.3,3.5 0.2,2 3,2 0.9,3.5" fill="#FFDE00"/></svg>
+            Cina
+          </span>
+          <span style="font-size:.74rem;color:var(--muted)">Total populasi: 1,4 Miliar Jiwa</span>
+        </div>
+        <!-- Callout Muslim CN di atas bar (fixed, tidak floating) -->
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem">
+          <div style="width:10px;height:10px;border-radius:2px;background:linear-gradient(90deg,#b8892a,#e8c05a);flex-shrink:0"></div>
+          <span style="font-size:.75rem;font-weight:700;color:var(--gold4)">Muslim Cina: 25 Juta (1,8%) — sangat kecil pada skala 100%</span>
+        </div>
+        <!-- Bar -->
+        <div style="position:relative;height:42px;background:#ede8df;border-radius:10px;overflow:hidden;">
+          <!-- Muslim fill (1.8%) -->
+          <div class="stacked-seg" style="position:absolute;left:0;top:0;height:100%;width:1.8%;background:linear-gradient(90deg,#b8892a,#e8c05a);border-radius:10px 0 0 10px;min-width:5px">
+          </div>
+          <!-- Non-Muslim fill -->
+          <div class="stacked-seg" style="position:absolute;right:0;top:0;height:100%;width:98.2%;background:linear-gradient(90deg,#bab5aa,#d0ccc4);border-radius:0 10px 10px 0;display:flex;align-items:center;padding-left:.8rem;overflow:hidden">
+            <span style="font-size:.76rem;font-weight:700;color:#5a5048;white-space:nowrap">Non-Muslim · 1,375 Miliar · 98,2%</span>
+          </div>
+        </div>
+        <!-- Divider overlay -->
+        <div style="position:relative;height:0;overflow:visible">
+          <div class="stacked-divider" style="position:absolute;left:1.8%;top:-42px;height:42px;width:2.5px;background:var(--gold4);z-index:5;pointer-events:none">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:var(--gold4);border:2px solid white;box-shadow:0 0 0 2px var(--gold4)"></div>
+          </div>
+        </div>
+        <!-- Label bawah -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.4rem">
+          <span style="font-size:.68rem;font-weight:800;color:var(--gold4);background:var(--gold-light);border:1px solid var(--border2);padding:.1rem .4rem;border-radius:4px;white-space:nowrap">1,8% ↔ 98,2%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">100%</span>
+        </div>
+        <!-- Scale ticks -->
+        <div style="display:flex;justify-content:space-between;padding:0 2px;margin-top:.15rem">
+          <span style="font-size:.6rem;color:var(--mutedlt)">0%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">25%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">50%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">75%</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">100%</span>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem;font-size:.8rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border2)">
+        <strong style="color:var(--gold2)">Analisis:</strong> Indonesia memiliki populasi Muslim terbesar dunia secara <em>absolut</em> (241 juta = 87% penduduk), sementara proporsi Muslim di Cina hanya 1,8% dari total 1,4 miliar penduduk — namun secara angka pun mencapai 25 juta jiwa.
+      </div>
+    </div>
+
+    <!-- GRAFIK: DURASI PUASA PER MUSIM -->
+    <div class="chart-card">
+      <div class="chart-title">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="#b8892a" stroke-width="1.5"/><path d="M7.5 4v4l2.5 1.5" stroke="#b8892a" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Durasi Puasa Per Musim / Kondisi (jam)
+      </div>
+
+      <!-- LEGEND -->
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem;align-items:center">
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.76rem;color:var(--textsub)">
+          <div style="width:12px;height:12px;border-radius:3px;background:linear-gradient(90deg,#c0392b,#e07060)"></div> Indonesia
+        </div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.76rem;color:var(--textsub)">
+          <div style="width:12px;height:12px;border-radius:3px;background:linear-gradient(90deg,#b8892a,#e8c05a)"></div> Cina
+        </div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.76rem;color:var(--textsub)">
+          <div style="width:18px;height:0;border-top:2px dashed #c0392b;opacity:.6"></div> Rata-rata ID (12,5 jam)
+        </div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.76rem;color:var(--textsub)">
+          <div style="width:18px;height:0;border-top:2px dashed #b8892a;opacity:.6"></div> Rata-rata CN (13,5 jam)
+        </div>
+      </div>
+
+      <!-- CHART AREA dengan garis referensi -->
+      <div style="position:relative;">
+
+        <!-- Garis referensi vertikal (skala 11–16 jam, max=16) -->
+        <!-- 11 jam = 68.75%, 12 = 75%, 12.5 = 78.125%, 13 = 81.25%, 13.5 = 84.375%, 16 = 100% -->
+
+        <!-- Wrapper posisi relatif untuk overlay garis -->
+        <div style="position:relative;">
+
+          <!-- Garis referensi: 11 jam -->
+          <div class="ref-line" style="position:absolute;left:68.75%;top:0;bottom:0;width:0;border-left:2px dotted rgba(150,130,90,0.35);z-index:1;pointer-events:none">
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:.58rem;color:var(--mutedlt);white-space:nowrap;font-weight:600">11j</div>
+          </div>
+          <!-- Garis referensi: 12 jam -->
+          <div class="ref-line" style="position:absolute;left:75%;top:0;bottom:0;width:0;border-left:2px dotted rgba(150,130,90,0.35);z-index:1;pointer-events:none">
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:.58rem;color:var(--mutedlt);white-space:nowrap;font-weight:600">12j</div>
+          </div>
+          <!-- Garis referensi: 13 jam -->
+          <div class="ref-line" style="position:absolute;left:81.25%;top:0;bottom:0;width:0;border-left:2px dotted rgba(150,130,90,0.35);z-index:1;pointer-events:none">
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:.58rem;color:var(--mutedlt);white-space:nowrap;font-weight:600">13j</div>
+          </div>
+          <!-- Garis referensi: 14 jam -->
+          <div class="ref-line" style="position:absolute;left:87.5%;top:0;bottom:0;width:0;border-left:2px dotted rgba(150,130,90,0.35);z-index:1;pointer-events:none">
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:.58rem;color:var(--mutedlt);white-space:nowrap;font-weight:600">14j</div>
+          </div>
+          <!-- Garis referensi: 15 jam -->
+          <div class="ref-line" style="position:absolute;left:93.75%;top:0;bottom:0;width:0;border-left:2px dotted rgba(150,130,90,0.35);z-index:1;pointer-events:none">
+            <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:.58rem;color:var(--mutedlt);white-space:nowrap;font-weight:600">15j</div>
+          </div>
+          <!-- Garis referensi: 16 jam (max) -->
+          <div class="ref-line" style="position:absolute;left:100%;top:0;bottom:0;width:0;border-left:2px dotted rgba(150,130,90,0.45);z-index:1;pointer-events:none">
+            <div style="position:absolute;top:-18px;right:0;font-size:.58rem;color:var(--mutedlt);white-space:nowrap;font-weight:600">16j</div>
+          </div>
+
+          <!-- Garis rata-rata Indonesia: 12,5 jam = 78.125% — MERAH PUTUS -->
+          <div style="position:absolute;left:78.125%;top:0;bottom:0;width:0;border-left:2px dashed rgba(192,57,43,0.55);z-index:3;pointer-events:none">
+            <div style="position:absolute;top:50%;left:4px;transform:translateY(-50%);font-size:.6rem;font-weight:800;color:#c0392b;white-space:nowrap;background:rgba(255,255,255,.85);padding:0 3px;border-radius:2px">⌀ ID</div>
+          </div>
+          <!-- Garis rata-rata Cina: 13,5 jam = 84.375% — EMAS PUTUS -->
+          <div style="position:absolute;left:84.375%;top:0;bottom:0;width:0;border-left:2px dashed rgba(184,137,42,0.6);z-index:3;pointer-events:none">
+            <div style="position:absolute;top:50%;left:4px;transform:translateY(-50%);font-size:.6rem;font-weight:800;color:var(--gold4);white-space:nowrap;background:rgba(255,255,255,.85);padding:0 3px;border-radius:2px">⌀ CN</div>
+          </div>
+
+          <!-- BAR ROWS -->
+          <div style="padding-top:22px;display:flex;flex-direction:column;gap:.85rem;position:relative;z-index:2;">
+
+            <div class="bar-group">
+              <div class="bar-info">
+                <span class="bar-lbl">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><rect width="10" height="4" fill="#CE1126"/><rect y="4" width="10" height="4" fill="white"/></svg>
+                  Indonesia — Kemarau
+                </span>
+                <span class="bar-num">13 jam</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill id1" style="width:81.25%"></div></div>
+            </div>
+
+            <div class="bar-group">
+              <div class="bar-info">
+                <span class="bar-lbl">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><rect width="10" height="4" fill="#CE1126"/><rect y="4" width="10" height="4" fill="white"/></svg>
+                  Indonesia — Hujan
+                </span>
+                <span class="bar-num">12 jam</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill id1" style="width:75%;opacity:.75"></div></div>
+            </div>
+
+            <!-- Pemisah ID / CN -->
+            <div style="height:1px;background:var(--border);margin:0 0 .1rem"></div>
+
+            <div class="bar-group">
+              <div class="bar-info">
+                <span class="bar-lbl">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><rect width="10" height="8" fill="#DE2910"/></svg>
+                  Cina — Musim Panas
+                </span>
+                <span class="bar-num">16 jam</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill chn-hot" style="width:100%"></div></div>
+            </div>
+
+            <div class="bar-group">
+              <div class="bar-info">
+                <span class="bar-lbl">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><rect width="10" height="8" fill="#DE2910"/></svg>
+                  Cina — Musim Semi / Gugur
+                </span>
+                <span class="bar-num">13 jam</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill cn1" style="width:81.25%"></div></div>
+            </div>
+
+            <div class="bar-group">
+              <div class="bar-info">
+                <span class="bar-lbl">
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><rect width="10" height="8" fill="#5a9ad0"/></svg>
+                  Cina — Musim Dingin
+                </span>
+                <span class="bar-num">11 jam</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill cn2" style="width:68.75%"></div></div>
+            </div>
+
+          </div><!-- /bar rows -->
+        </div><!-- /inner -->
+
+        <!-- Skala jam di bawah -->
+        <div style="display:flex;justify-content:space-between;padding:0 0 0 0;margin-top:.6rem">
+          <span style="font-size:.6rem;color:var(--mutedlt)">0 jam</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">4 jam</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">8 jam</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">12 jam</span>
+          <span style="font-size:.6rem;color:var(--mutedlt)">16 jam</span>
+        </div>
+
+      </div><!-- /position:relative outer -->
+
+      <div style="margin-top:1rem;font-size:.8rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border2)">
+        <strong style="color:var(--gold2)">Catatan:</strong> Skala berdasarkan maks 16 jam. Garis putus-putus merah = rata-rata Indonesia (12,5 jam), emas = rata-rata Cina (13,5 jam). Selisih maks antara kedua negara mencapai <strong>4 jam</strong> saat Ramadhan jatuh di musim panas Cina.
+      </div>
+    </div>
+
+    <!-- DIAGRAM DONUT: % MUSLIM -->
+    <p class="slabel">Diagram Persentase Muslim terhadap Total Populasi</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem">
+      <!-- Indonesia -->
+      <div class="chart-card" style="margin-bottom:0">
+        <div class="chart-title" style="justify-content:center">Indonesia</div>
+        <div class="donut-row" style="justify-content:center;flex-direction:column;align-items:center;gap:1rem">
+          <div class="donut-wrap">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <!-- Non-Muslim: 13% -->
+              <circle cx="65" cy="65" r="50" fill="none" stroke="#e8e0d0" stroke-width="18"/>
+              <!-- Muslim: 87% of 314.16 = 273.3 -->
+              <circle cx="65" cy="65" r="50" fill="none" stroke="#c0392b" stroke-width="18"
+                stroke-dasharray="273.3 40.86" stroke-dashoffset="78.5"
+                stroke-linecap="butt" transform="rotate(-90 65 65)"/>
+            </svg>
+            <div class="donut-label">
+              <span class="donut-pct">87%</span>
+              <span class="donut-sub">Muslim</span>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <div class="leg-item"><div class="leg-dot" style="background:#c0392b"></div><span class="leg-name">Muslim</span><span class="leg-val">241 Juta (87%)</span></div>
+            <div class="leg-item"><div class="leg-dot" style="background:#e8e0d0"></div><span class="leg-name">Non-Muslim</span><span class="leg-val">36 Juta (13%)</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Cina -->
+      <div class="chart-card" style="margin-bottom:0">
+        <div class="chart-title" style="justify-content:center">Cina</div>
+        <div class="donut-row" style="justify-content:center;flex-direction:column;align-items:center;gap:1rem">
+          <div class="donut-wrap">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <circle cx="65" cy="65" r="50" fill="none" stroke="#e8e0d0" stroke-width="18"/>
+              <!-- Muslim: 1.8% of 314.16 = 5.65 -->
+              <circle cx="65" cy="65" r="50" fill="none" stroke="#b8892a" stroke-width="18"
+                stroke-dasharray="5.65 308.51" stroke-dashoffset="78.5"
+                stroke-linecap="butt" transform="rotate(-90 65 65)"/>
+            </svg>
+            <div class="donut-label">
+              <span class="donut-pct">1,8%</span>
+              <span class="donut-sub">Muslim</span>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <div class="leg-item"><div class="leg-dot" style="background:#b8892a"></div><span class="leg-name">Muslim</span><span class="leg-val">25 Juta (1,8%)</span></div>
+            <div class="leg-item"><div class="leg-dot" style="background:#e8e0d0"></div><span class="leg-name">Non-Muslim</span><span class="leg-val">1,375 M (98,2%)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAT BLOCKS: PERHITUNGAN -->
+    <p class="slabel">Perhitungan &amp; Analisis Data</p>
+    <div class="stat-compare">
+      <div class="stat-block">
+        <h4>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="#b8892a" stroke-width="1.2"/><path d="M4 7h6M7 4v6" stroke="#b8892a" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Perhitungan Rata-rata
+        </h4>
+        <div class="stat-item"><span class="stat-k">Rata-rata puasa ID</span><span class="stat-v">(12+13)÷2 = 12,5 jam</span></div>
+        <div class="stat-item"><span class="stat-k">Rata-rata puasa CN</span><span class="stat-v">(11+16)÷2 = 13,5 jam</span></div>
+        <div class="stat-item"><span class="stat-k">Selisih rata-rata</span><span class="stat-v">13,5 − 12,5 = 1,0 jam</span></div>
+        <div class="stat-item"><span class="stat-k">Selisih maksimal</span><span class="stat-v">16 − 12 = 4 jam</span></div>
+        <div class="stat-item"><span class="stat-k">Selisih minimal</span><span class="stat-v">11 − 13 = −2 jam (CN lebih pendek)</span></div>
+        <div class="stat-item"><span class="stat-k">Rentang variasi ID</span><span class="stat-v">13 − 12 = 1 jam</span></div>
+        <div class="stat-item"><span class="stat-k">Rentang variasi CN</span><span class="stat-v">16 − 11 = 5 jam</span></div>
+      </div>
+      <div class="stat-block">
+        <h4>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="#b8892a" stroke-width="1.2"/><path d="M4 5h6M4 7h6M4 9h4" stroke="#b8892a" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Persentase Perbedaan
+        </h4>
+        <div class="stat-item"><span class="stat-k">Muslim ID dari populasi</span><span class="stat-v">241÷277 × 100 = 87%</span></div>
+        <div class="stat-item"><span class="stat-k">Muslim CN dari populasi</span><span class="stat-v">25÷1400 × 100 = 1,8%</span></div>
+        <div class="stat-item"><span class="stat-k">% Islam ID dibanding CN</span><span class="stat-v">87% ÷ 1,8% = 48× lebih tinggi</span></div>
+        <div class="stat-item"><span class="stat-k">Puasa CN panas → ID</span><span class="stat-v">(16−12,5)÷12,5 × 100 = +28%</span></div>
+        <div class="stat-item"><span class="stat-k">Puasa CN dingin → ID</span><span class="stat-v">(11−12,5)÷12,5 × 100 = −12%</span></div>
+        <div class="stat-item"><span class="stat-k">Variabilitas CN : ID</span><span class="stat-v">5 jam ÷ 1 jam = 5× lebih variatif</span></div>
+        <div class="stat-item"><span class="stat-k">Usia Islam CN &amp; ID</span><span class="stat-v">CN: 824 th · ID: 196 th · Selisih 628 th</span></div>
+      </div>
+    </div>
+
+    <!-- TABEL LENGKAP -->
+    <p class="slabel">Tabel Perbandingan Lengkap</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Kategori</th><th>Indonesia</th><th>Cina</th></tr></thead>
+        <tbody>
+          <tr><td>Total Populasi</td><td>±277 juta jiwa</td><td>±1,4 miliar jiwa</td></tr>
+          <tr><td>Populasi Muslim</td><td>±241 juta (87%)</td><td>±25 juta (1,8%)</td></tr>
+          <tr><td>Letak Lintang</td><td>6° LU – 11° LS</td><td>18° LU – 53° LU</td></tr>
+          <tr><td>Letak Bujur</td><td>95° BT – 141° BT</td><td>73° BT – 135° BT</td></tr>
+          <tr><td>Durasi Puasa</td><td>12–13 jam (stabil)</td><td>11–16 jam (berubah tiap musim)</td></tr>
+          <tr><td>Rata-rata Durasi Puasa</td><td class="td-center" style="color:var(--red-id)!important">12,5 jam</td><td class="td-center">13,5 jam</td></tr>
+          <tr><td>Selisih Puasa Maks.</td><td class="td-center" colspan="2">±3–4 jam lebih panjang di Cina saat musim panas</td></tr>
+          <tr><td>Zona Waktu</td><td>WIB +7 / WITA +8 / WIT +9</td><td>CST +8 (satu zona)</td></tr>
+          <tr><td>Iklim Dominan</td><td>Tropis (panas sepanjang tahun)</td><td>Beragam: Subtropis – Kontinental</td></tr>
+          <tr><td>Jumlah Musim</td><td>2 (Hujan &amp; Kemarau)</td><td>4 (Semi, Panas, Gugur, Dingin)</td></tr>
+          <tr><td>Suku Muslim</td><td>Jawa, Sunda, Melayu, Bugis</td><td>Hui, Uyghur, Kazakh</td></tr>
+          <tr><td>Islam Masuk</td><td>Abad ke-13 M</td><td>Abad ke-7 M (Jalur Sutra)</td></tr>
+          <tr><td>Makanan Khas Buka</td><td>Kolak, Gorengan, Es Cendol, Soto</td><td>Niurou Mian, Naan, Sup Domba</td></tr>
+          <tr><td>Makanan Khas Sahur</td><td>Nasi Goreng, Bubur Ayam, Tempe</td><td>Congee, Naan, Baozi Halal</td></tr>
+          <tr><td>Tradisi Menjelang</td><td>Nyekar, Padusan, Megengan</td><td>Bersih Masjid, Doa Bersama</td></tr>
+          <tr><td>Tradisi Saat Puasa</td><td>Ngabuburit, Pesantren Kilat, Bedug</td><td>Zhai Jie, Pasar Malam Halal, Nasyid</td></tr>
+          <tr><td>Tradisi Akhir Ramadhan</td><td>Iktikaf, Takbir Keliling, Zakat Fitrah</td><td>Iktikaf, Khatam Qur'an, Sedekah</td></tr>
+          <tr><td>Tradisi Idul Fitri</td><td>Mudik, Halal bihalal, Ketupat Opor</td><td>Shalat Id, Tarian Uyghur, Angpao</td></tr>
+          <tr><td>Status Islam</td><td>Mayoritas — inti budaya</td><td>Minoritas — dilindungi UU</td></tr>
+          <tr><td>Masjid Terkenal</td><td>Masjid Istiqlal, Jakarta</td><td>Masjid Niujie, Beijing (996 M)</td></tr>
+          <tr><td>Variabilitas Durasi Puasa</td><td>1 jam (sangat stabil)</td><td>5 jam (sangat variatif)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p>© 2026 Proyek <strong>Ramadhan Cultural Exchange</strong> &nbsp;·&nbsp; Kelompok 2</p>
+</footer>
+
+<script>
+/* ══ TABS ══ */
+function openTab(name, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tbtn').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById(name);
+  panel.style.animation = 'none';
+  panel.offsetHeight;
+  panel.style.animation = '';
+  panel.classList.add('active');
+  btn.classList.add('active');
+
+  // Trigger animations for statistik tab
+  if (name === 'statistik') {
+    setTimeout(() => {
+      animateBars();
+      animateCounters();
+      animateDonuts();
+    }, 100);
+  }
+}
+
+/* ══ STAR CANVAS ══ */
+(function(){
+  const canvas = document.getElementById('star-canvas');
+  const ctx = canvas.getContext('2d');
+  const header = canvas.parentElement;
+
+  function resize() {
+    canvas.width = header.offsetWidth;
+    canvas.height = header.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const GOLD = 'rgba(184,137,42,';
+
+  class Star {
+    constructor() { this.reset(true); }
+    reset(init) {
+      this.x = rand(0, canvas.width);
+      this.y = rand(0, canvas.height);
+      this.r = rand(0.5, 2.2);
+      this.phase = rand(0, Math.PI * 2);
+      this.speed = rand(0.008, 0.025);
+      this.maxAlpha = rand(0.12, 0.45);
+    }
+    update() { this.phase += this.speed; }
+    draw() {
+      const a = this.maxAlpha * (0.4 + 0.6 * Math.abs(Math.sin(this.phase)));
+      ctx.save();
+      ctx.globalAlpha = a;
+      ctx.fillStyle = GOLD + '1)';
+      ctx.shadowBlur = this.r * 6;
+      ctx.shadowColor = GOLD + '0.6)';
+      // 4-point star shape
+      const r = this.r;
+      ctx.beginPath();
+      for (let i = 0; i < 8; i++) {
+        const ang = (i * Math.PI / 4) - Math.PI / 2;
+        const rd = i % 2 === 0 ? r * 2.2 : r * 0.7;
+        i === 0
+          ? ctx.moveTo(this.x + rd * Math.cos(ang), this.y + rd * Math.sin(ang))
+          : ctx.lineTo(this.x + rd * Math.cos(ang), this.y + rd * Math.sin(ang));
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  const stars = Array.from({ length: 55 }, () => new Star());
+
+  function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => { s.update(); s.draw(); });
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ══ BAR CHART ANIMATION ══ */
+let barsAnimated = false;
+function animateBars() {
+  if (barsAnimated) return;
+  barsAnimated = true;
+
+  // Animate regular bar fills
+  const fills = document.querySelectorAll('.bar-fill');
+  fills.forEach(el => {
+    const target = el.style.width;
+    el.style.width = '0%';
+    el.style.transition = 'none';
+    el.offsetHeight;
+    el.style.transition = 'width 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)';
+    setTimeout(() => { el.style.width = target; }, 80);
+  });
+
+  // Animate stacked segments
+  const stackedSegs = document.querySelectorAll('.stacked-seg');
+  stackedSegs.forEach(el => {
+    const targetWidth = el.style.width;
+    const targetMinWidth = el.style.minWidth;
+    el.style.transition = 'none';
+    el.style.width = '0%';
+    el.style.minWidth = '0px';
+    el.offsetHeight;
+    el.style.transition = 'width 1.3s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s, min-width 1.3s ease 0.1s';
+    setTimeout(() => {
+      el.style.width = targetWidth;
+      if (targetMinWidth) el.style.minWidth = targetMinWidth;
+    }, 120);
+  });
+
+  // Animate divider lines (left position)
+  const dividers = document.querySelectorAll('.stacked-divider');
+  dividers.forEach(el => {
+    const targetLeft = el.style.left;
+    el.style.transition = 'none';
+    el.style.left = '0%';
+    el.offsetHeight;
+    el.style.transition = 'left 1.3s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s';
+    setTimeout(() => { el.style.left = targetLeft; }, 120);
+  });
+}
+
+/* ══ COUNTER ANIMATION ══ */
+let countersAnimated = false;
+function animateCounters() {
+  if (countersAnimated) return;
+  countersAnimated = true;
+
+  const counters = [
+    { selector: '.avg-card:nth-child(1) .avg-num', from: 0, to: 12.5, decimals: 1, suffix: '' },
+    { selector: '.avg-card:nth-child(2) .avg-num', from: 0, to: 13.5, decimals: 1, suffix: '' },
+    { selector: '.avg-card:nth-child(3) .avg-num', from: 0, to: 1.0, decimals: 1, suffix: '+' },
+  ];
+
+  counters.forEach(({ selector, from, to, decimals, suffix }) => {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    const duration = 1600;
+    const startTime = performance.now();
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = from + (to - from) * eased;
+      el.textContent = (suffix === '+' ? '+' : '') + value.toFixed(decimals);
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+
+  // Animate the scard-val % values in stat table
+  const statVals = document.querySelectorAll('.stat-v');
+  statVals.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(8px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+  statVals.forEach((el, i) => {
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, i * 60 + 300);
+  });
+}
+
+/* ══ DONUT ANIMATION ══ */
+let donutsAnimated = false;
+function animateDonuts() {
+  if (donutsAnimated) return;
+  donutsAnimated = true;
+
+  document.querySelectorAll('circle[stroke-dasharray]').forEach(circle => {
+    const originalDash = circle.getAttribute('stroke-dasharray');
+    const parts = originalDash.split(' ');
+    const filled = parseFloat(parts[0]);
+    const rest = parseFloat(parts[1]);
+    const total = filled + rest;
+
+    // Set to 0 first
+    circle.style.transition = 'none';
+    circle.setAttribute('stroke-dasharray', `0 ${total}`);
+
+    // Animate after a tick
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        circle.style.transition = 'stroke-dasharray 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s';
+        circle.setAttribute('stroke-dasharray', originalDash);
+      });
+    });
+  });
+}
+
+/* ══ STAGGERED CARD ENTRANCE on tab open ══ */
+const _origOpenTab = openTab;
+
+/* Trigger statistik on first load check */
+window.addEventListener('DOMContentLoaded', () => {
+  // Pre-set bars to 0 so animation works on first open
+  document.querySelectorAll('.bar-fill').forEach(el => {
+    el._targetWidth = el.style.width;
+    el.style.width = '0%';
+    el.style.transition = 'none';
+  });
+});
+</script>
+</body>
+</html>
